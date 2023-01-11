@@ -1,7 +1,7 @@
-# Пустой список, из него достаются все сообщения
+# Подключение datetime 
 from datetime import datetime
 
-# Подключение сервера
+# Подключение сервера через Flask
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def main_page():
 all_messages = []
 
 
-# Добавление нового сообщения
+# Добавление нового сообщения с временем
 def add_messages(sender, text):
     new_messages = {
         'name': sender,
@@ -57,5 +57,5 @@ def send_message():
 def chat_page():
     return render_template('Chat.html')
 
-
+# Настройка и запуск чата в сети
 app.run(host='0.0.0.0', port=8080, debug=True)
